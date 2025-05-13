@@ -1,3 +1,6 @@
 *.pyc
 __pycache__
 datasets
+source_datasets_dir
+idd20kII
+IDD_Segmentation

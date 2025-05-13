@@ -26,34 +26,22 @@ import shutil
 args = None
 
 
-def process_folder(fn):
-    global args
+def process_folder(params):
+    fn, id_type, instance, color = params
 
-    dst = fn.replace("_polygons.json", "_label{}s.png".format(args.id_type))
-
-    # do the conversion
+    dst = fn.replace("_polygons.json", "_label{}s.png".format(id_type))
     try:
-        json2labelImg(fn, dst, args.id_type)
+        json2labelImg(fn, dst, id_type)
     except:
         tqdm.write("Failed to convert: {}".format(fn))
         raise
 
-    if args.instance:
-        dst = fn.replace("_polygons.json",
-                         "_instance{}s.png".format(args.id_type))
+    if instance:
+        dst = fn.replace("_polygons.json", "_instance{}s.png".format(id_type))
+        json2instanceImg(fn, dst, id_type)
 
-        # do the conversion
-        # try:
-        json2instanceImg(fn, dst, args.id_type)
-        # except:
-        #     tqdm.write("Failed to convert: {}".format(f))
-        #     raise
-
-    if args.color:
-        # create the output filename
+    if color:
         dst = fn.replace("_polygons.json", "_labelColors.png")
-
-        # do the conversion
         try:
             json2labelImg(fn, dst, 'color')
         except:
@@ -141,8 +129,8 @@ def main(args):
 
     pool = Pool(args.num_workers)
     # results = pool.map(process_pred_gt_pair, pairs)
-    results = list(
-        tqdm(pool.imap(process_folder, files), total=len(files)))
+    params = [(f, args.id_type, args.instance, args.color) for f in files]
+    results = list(tqdm(pool.imap(process_folder, params), total=len(files)))
     pool.close()
     pool.join()
 

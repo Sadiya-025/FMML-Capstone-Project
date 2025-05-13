@@ -2,10 +2,15 @@
 #
 
 # python imports
-from anue_labels import name2label
-from annotation import Annotation
 import os
 import sys
+
+sys.path.append(os.path.normpath(os.path.join(
+    os.path.dirname(__file__), '..', 'helpers')))
+
+from tqdm import tqdm
+from anue_labels import name2label
+from annotation import Annotation
 import getopt
 
 import numpy
@@ -13,8 +18,8 @@ import numpy
 # Image processing
 # Check if PIL is actually Pillow as expected
 try:
-    from PIL import PILLOW_VERSION
-except:
+    from PIL import Image
+except ImportError:
     print("Please install the module 'Pillow' for image processing, e.g.")
     print("pip install pillow")
     sys.exit(-1)
@@ -26,12 +31,7 @@ except:
     print("Failed to import the image processing packages.")
     sys.exit(-1)
 
-
-sys.path.append(os.path.normpath(os.path.join(
-    os.path.dirname(__file__), '..', 'helpers')))
-
 # Print the information
-
 
 def printHelp():
     print('{} [OPTIONS] inputJson outputImg'.format(

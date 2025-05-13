@@ -31,20 +31,23 @@
 #
 # See also createTrainIdInstanceImgs.py to apply the mapping to all annotations in Cityscapes.
 #
-
 # python imports
-from anue_labels import labels, name2label
-from annotation import Annotation
 import os
 import sys
+
+sys.path.append(os.path.normpath(os.path.join(
+    os.path.dirname(__file__), '..', 'helpers')))
+
+from anue_labels import labels, name2label
+from annotation import Annotation
 import getopt
 from tqdm import tqdm
 
 # Image processing
 # Check if PIL is actually Pillow as expected
 try:
-    from PIL import PILLOW_VERSION
-except:
+    from PIL import Image
+except ImportError:
     print("Please install the module 'Pillow' for image processing, e.g.")
     print("pip install pillow")
     sys.exit(-1)
@@ -56,13 +59,9 @@ except:
     print("Failed to import the image processing packages.")
     sys.exit(-1)
 
-
-sys.path.append(os.path.normpath(os.path.join(
-    os.path.dirname(__file__), '..', 'helpers')))
 # print(sys.path)
 
 # Print the information
-
 
 def printHelp():
     print('{} [OPTIONS] inputJson outputImg'.format(
