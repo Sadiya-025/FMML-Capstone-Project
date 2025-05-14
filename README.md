@@ -27,9 +27,9 @@ Autonomous driving in India presents unique challenges due to unstructured roads
 - **Loss Function:** CrossEntropyLoss with masking
 - **Evaluation Metric:** Mean IoU (mIoU)
 
-## 📊 Model Training & Evaluation (FMML-Capstone-Project.ipynb)
+## 📊 Model Training & Evaluation
 
-The notebook performs the following steps:
+The notebook (FMML-Capstone-Project.ipynb) performs the following steps:
 
 ### 🔄 Data Preparation
 
@@ -61,17 +61,6 @@ The notebook performs the following steps:
 - Computed per-class IoU
 - Visualized predictions for qualitative assessment
 - Identified confusion in similar categories (e.g., pedestrian vs rider)
-
-## 📄 Project Report
-
-A detailed PDF report is available in this repo: `Project Report.pdf`, covering:
-
-- Problem statement & objectives
-- Dataset and label format
-- DeepLabV3+ model architecture
-- Training logs and hyperparameters
-- Evaluation strategy
-- Challenges & future work
 
 ## 🔍 Challenges Faced
 
