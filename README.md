@@ -2,21 +2,15 @@
 
 Welcome to the repository for my FMML (Foundations of Modern Machine Learning) Capstone Project. This project tackles **semantic segmentation** using deep learning techniques on the **Indian Driving Dataset (IDD)**. The focus is on **pixel-wise classification** of road scenes captured across various Indian cities into 26 level-3 classes, aiding perception systems for autonomous vehicles.
 
----
-
 ## 🚗 Problem Statement
 
-Autonomous driving in India presents unique challenges due to unstructured roads, inconsistent infrastructure, and high visual variability. To address this, we perform **semantic segmentation**—a computer vision task that classifies each pixel in an image into predefined categories relevant to road environments (e.g., roads, vehicles, pedestrians).
-
----
+Autonomous driving in India presents unique challenges due to unstructured roads, inconsistent infrastructure, and high visual variability. To address this, we perform **semantic segmentation** - a computer vision task that classifies each pixel in an image into predefined categories relevant to road environments (e.g., roads, vehicles, pedestrians).
 
 ## 🎯 Objectives
 
 - Develop a deep learning model to perform semantic segmentation on IDD data.
 - Achieve high accuracy using the **Mean Intersection over Union (mIoU)** metric.
 - Optimize training with best practices such as data augmentation, checkpointing, and validation monitoring.
-
----
 
 ## 🧪 Dataset: Indian Driving Dataset (IDD)
 
@@ -25,8 +19,6 @@ Autonomous driving in India presents unique challenges due to unstructured roads
 - **Resolution:** Resized to 256 x 256 during training; original size 1280 x 720
 - **Splitting:** 85% training / 15% validation
 
----
-
 ## 🧰 Tools & Frameworks
 
 - **Framework:** PyTorch & TorchVision
@@ -34,8 +26,6 @@ Autonomous driving in India presents unique challenges due to unstructured roads
 - **Training Optimizer:** Adam
 - **Loss Function:** CrossEntropyLoss with masking
 - **Evaluation Metric:** Mean IoU (mIoU)
-
----
 
 ## 📊 Model Training & Evaluation (FMML-Capstone-Project.ipynb)
 
@@ -72,8 +62,6 @@ The notebook performs the following steps:
 - Visualized predictions for qualitative assessment
 - Identified confusion in similar categories (e.g., pedestrian vs rider)
 
----
-
 ## 📄 Project Report
 
 A detailed PDF report is available in this repo: `Project Report.pdf`, covering:
@@ -85,23 +73,17 @@ A detailed PDF report is available in this repo: `Project Report.pdf`, covering:
 - Evaluation strategy
 - Challenges & future work
 
----
-
 ## 🔍 Challenges Faced
 
 - Slight overfitting after epoch 8
 - Class imbalance in rare categories
 - Tradeoff between training speed and input resolution
 
----
-
 ## 🔮 Future Work
 
 - Fine-tune on higher resolution (512 x 512 or 1280 x 720)
 - Test transformer-based models like SegFormer, Mask2Former
 - Perform domain adaptation with Cityscapes and BDD100K
-
----
 
 ## 🧪 Installation & Setup
 
@@ -135,7 +117,7 @@ Prepare dataset:
 
 - Download IDD Part I & II
 - Place and extract them inside the `domain_adaptation/` directory
-- Run the official label generation script (`createLabels.py`) as described [here](#)
+- Run the official label generation script (`createLabels.py`)
 
 ---
 
