@@ -108,8 +108,6 @@ Prepare dataset:
 - Place and extract them inside the `domain_adaptation/` directory
 - Run the official label generation script (`createLabels.py`)
 
----
-
 ## 🏆 Performance Summary
 
 | Metric       | Value  |
@@ -117,8 +115,6 @@ Prepare dataset:
 | Best mIoU    | 0.8520 |
 | Epoch        | 8      |
 | Val Accuracy | ~95.6% |
-
----
 
 ## 📬 Contact
 
